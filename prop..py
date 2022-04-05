@@ -1,9 +1,11 @@
+"""Determination de sièges dans une assemblée en fonction du nombre
+de voix des listes"""
 
-nombre_de_sieges = 577
+NB_DE_SIEGES = 100
 dict_resultats_en_voix = {
-"A":100,
-"B":188,
-"C":154,
+"A":100153,
+"B":181538,
+"C":158894,
 
 }
 
@@ -14,18 +16,18 @@ for i in dict_resultats_en_sieges:
 
 
 
-nb_voix_totales = 0
+NB_DE_VOIX_TOTALES = 0
 ST = 0
 
 #Calcul nombre de voix
 for i in dict_resultats_en_voix:
     nb_voix_candidat = (dict_resultats_en_voix.get(i))
-    nb_voix_totales = nb_voix_totales+nb_voix_candidat
+    NB_DE_VOIX_TOTALES = NB_DE_VOIX_TOTALES+nb_voix_candidat
 
-print ("Nombre de voix exprimées ",nb_voix_totales)
+print ("Nombre de voix exprimées ",NB_DE_VOIX_TOTALES)
 
 
-quotient_electoral = (nb_voix_totales/nombre_de_sieges)
+quotient_electoral = (NB_DE_VOIX_TOTALES/NB_DE_SIEGES)
 
 print ("Quotient Electoral ", quotient_electoral)
 
@@ -41,7 +43,7 @@ for i in dict_resultats_en_sieges:
     ST = ST+SS
 
 print (ST)
-SIR = nombre_de_sieges-ST
+SIR = NB_DE_SIEGES-ST
 print (SIR)
 
 VXX=0
@@ -56,7 +58,7 @@ while T < SIR+1:
         VXX=dict_resultats_en_voix[i]
         SGP=dict_resultats_en_sieges[i]+1
         MOY=VXX/SGP
-        resultats_en_qe[i]= MOY    
+        resultats_en_qe[i]= MOY
 
     v=list(resultats_en_qe.values())
     k=list(resultats_en_qe.keys())
@@ -70,4 +72,3 @@ while T < SIR+1:
 for i in dict_resultats_en_sieges:
     sieges_final= dict_resultats_en_sieges[i]
     print (i,sieges_final, "sieges")
-    
